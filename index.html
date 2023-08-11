@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="stilos.css/index.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@700&display=swap" rel="stylesheet" />
+  <title>GENIZ</title>
+</head>
+
+<body>
+
+  <section class="geninz-titel">
+    <div class="menu">
+      <div class="barra br1" id="l1"></div>
+      <div class="barra br2" id="l2"></div>
+      <div class="barra br3" id="l3"></div>
+    </div>
+
+    <div class="geinz">
+      <h1>Geinz</h1>
+    </div>
+    <div class="carrito">
+      <img src="img/carritopng.png" alt="" />
+    </div>
+  </section>
+  <section class="menu-hamburgas">
+    <div class="contenedores-enlaces">
+      <a href="">
+        <p id="nosotrosid">Nosotros</p>
+      </a>
+      <a href="">
+        <p id="contactoid">Contacto</p>
+      </a>
+      <a href="">
+        <p id="redesid">Redes</p>
+      </a>
+      <a href="">
+        <p id="Informacionid">Informacion</p>
+      </a>
+    </div>
+  </section>
+
+  <script>
+    let barra1 = document.getElementById("l1");
+    let barra2 = document.getElementById("l2");
+    let barra3 = document.getElementById("l3");
+    let barras = document.querySelectorAll(".barra");
+    let contenidoMenu = document.querySelector(".menu-hamburgas");
+
+    barras.forEach(function (menu) {
+      menu.addEventListener("click", function () {
+        var isActive = barra1.classList.contains("active");
+
+        if (isActive) {
+          barra1.classList.remove("active");
+          barra2.classList.remove("active");
+          barra3.classList.remove("active");
+        } else {
+          barra1.classList.add("active");
+          barra2.classList.add("active");
+          barra3.classList.add("active");
+        }
+        contenidoMenu.classList.toggle("mostraapartado");
+      });
+    });
+
+    var elementos = [nosotrosid, contactoid, redesid, Informacionid];
+    var itemsActivos = [l1, l2, l3];
+    function clickmenu() {
+      contenidoMenu.classList.remove("mostraapartado");
+      itemsActivos.forEach(item => item.classList.remove("active"));
+    }
+
+    elementos.forEach(elemento => {
+      elemento.addEventListener("click", clickmenu)
+    })
+  </script>
+
+  <section class="landing-page" id="landing-pageid">
+    <div class="btn-mover">
+      <div class="puntos pun1" id="pun1"></div>
+      <div class="puntos pun2"></div>
+      <div class="puntos pun3"></div>
+    </div>
+
+    <script>
+      var punto1 = document.getElementById("pun1");
+      var punto2 = document.querySelector(".pun2")
+      var punto3 = document.querySelector(".pun3")
+      var contenedorimg = document.getElementById("landing-pageid")
+
+
+      punto1.addEventListener("click", function () {
+        contenedorimg.style.backgroundImage = "url(https://i.pinimg.com/736x/0b/b5/be/0bb5be78ea416d0a5889d95fefa5adc9.jpg)"
+      })
+      punto2.addEventListener("click", function () {
+        contenedorimg.style.backgroundImage = "url(/img/geinz-basic.png)"
+      })
+      punto3.addEventListener("click", function () {
+        contenedorimg.style.backgroundImage = "url(/img/polera4.jpg)"
+      })
+      var images = [
+        "/img/pologeinz1.png",
+        "/img/geinz-basic.png",
+        "/img/polera4.jpg",
+      ];
+      var currentImageIndex = 0;
+      function changeImage() {
+        contenedorimg.style.backgroundImage = "url(" + images[currentImageIndex] + ")";
+        currentImageIndex = (currentImageIndex + 1) % images.length; // Avanza al siguiente índice, reiniciando si llega al final
+        setTimeout(changeImage, 10000); // Llama a la función de nuevo después de 1 segundo
+      }
+      changeImage();
+    </script>
+  </section>
+
+  <!-- <section class="Nosotros">
+        <div class="flex-nosotros">
+            <div class="seccione cont1">
+                <h1>Texto 1</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur dolor delectus minima magni
+                    inventore laudantium incidunt eos adipisci mollitia sapiente amet assumenda unde consequatur sint
+                    quisquam, modi ut! Illum, iure.</p>
+            </div>
+            <div class="seccione cont2">
+                <h1>Texto 1</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur dolor delectus minima magni
+                    inventore laudantium incidunt eos adipisci mollitia sapiente amet assumenda unde consequatur sint
+                    quisquam, modi ut! Illum, iure.</p>
+            </div>
+            <div class="seccione cont3">
+                <h1>Texto 1</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur dolor delectus minima magni
+                    inventore laudantium incidunt eos adipisci mollitia sapiente amet assumenda unde consequatur sint
+                    quisquam, modi ut! Illum, iure.</p>
+            </div>
+        </div>
+    </section>
+ -->
+
+  <!--productos-->
+  <section id="Productos">
+    <div class="productos">
+      <h1>Recientes entregas</h1>
+      <div class="contanedor_productos">
+        <div class="botonjs">
+          <script src="botonesmobilesjs/productos.js"></script>
+          <button id="btn-slide-left" class="cirlulo-boton">
+            <div class="botonmoverderecha">
+              <span>&gt;</span>
+            </div>
+          </button>
+          <button id="btnlrigth" class="cirlulo-boton2">
+            <span>&lt;</span>
+          </button>
+        </div>
+
+        <div id="product-list">
+          <ul class="producto_lista" id="productos_containter2">
+            <script src="js/producto.js"></script>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="Basicos">
+    <div class="imgcontainer-basico"></div>
+
+    <div class="palabras-basico">
+      <p>Geinz basic</p>
+      <h1>Demuestra de lo que eres capaz</h1>
+      <button>Comprar</button>
+    </div>
+
+  </section>
+
+  <section class="Basicos">
+    <div class="imgcontainer-basico imgcontainer_2"></div>
+
+    <div class="palabras-basico">
+      <p>Geinz basic</p>
+      <h1>Demuestra de lo que eres capaz</h1>
+      <button>Comprar</button>
+    </div>
+
+  </section>
+  <!--deporte-->
+  <section id="deporte">
+    <div class="deporte">
+      <h1>Basicos</h1>
+      <div class="contanedor_deporte">
+        <div class="botonjs-deporte">
+          <script src="botonesmobilesjs/descuento.js"></script>
+          <button id="btn-slide-left-deport" class="cirlulo-boton-deporte">
+            <div class="botonmoverderecha-deporte">
+              <span>&gt;</span>
+            </div>
+          </button>
+          <button id="btnlrigth2" class="cirlulo-boton2s">
+            <span>&lt;</span>
+          </button>
+        </div>
+
+        <div id="product-list-deporte">
+          <ul class="producto_lista_deporte" id="productos_containter2_deporte">
+            <script src="js/novedades.js"></script>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ 
+
+  <!-- unete img -->
+  <section class="img-unete">
+   
+  </section>
+
+  <section class="btn-unirme">
+    <div class="botones-unirme">
+      <button>Unirme</button>
+      <button>Iniciar seccion</button>
+    </div>
+  </section>
+
+  <!--Usuarios registrados-->
+  <section id="usuarios_registrados2">
+    <div class="fondo-registrado">
+      <div class="flex">
+        <div class="paalbras">
+          <h1>Usuarios registrados</h1>
+          <p>Unete a Geinz para que recibas siempre los nuevos lanzamineto</p>
+        </div>
+        <div id="progress2">
+          <span id="currentNumber2">0</span>
+          <script src="js/usersregistrados2.js"></script>
+          <h2>USUAIOS</h2>
+          <div id="scrollTarget2" style="height: 100px"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="envios-servicio">
+    <div class="contenedor-envios">
+      <div class="contenedores envio">
+        <img src="img/carrito_entrega.png" alt="" />
+        <p>Envios a todo el Peru</p>
+      </div>
+
+      <div class="contenedores servicio">
+        <img src="img/tiempo_entrega.png" alt="" />
+        <p>servicio al cliente 24/7</p>
+      </div>
+
+      <div class="contenedores tienda">
+        <img src="img/bolso-removebg-preview.png" alt="" />
+        <p>Tienda en linea</p>
+      </div>
+
+      <div class="contenedores tiempo-entrega">
+        <img src="img/escudo.png" alt="" />
+        <p>Garantia y satisfaccion</p>
+      </div>
+    </div>
+  </section>
+  <!--footer-->
+  <footer>
+    <div class="fondo">
+      <div class="fondogeneral">
+        <div class="title-footer">
+          <h1>Geinz</h1>
+          <p>For woman and men</p>
+        </div>
+        <div class="enlaces">
+          <a href="terminos_condiciones.html">
+            <p>-Terminos y condiciones</p>
+          </a>
+          <a href="">
+            <p>-politica de devolucion</p>
+          </a>
+          <a href="">
+            <p>-Nosotros</p>
+          </a>
+          <a href="">
+            <p>-Preguntas frecuetes</p>
+          </a>
+          <a href="">
+            <p>-Reseñas</p>
+          </a>
+        </div>
+        <div class="title-redes">
+          <h1>redes</h1>
+        </div>
+        <div class="redescontenier">
+          <img src="img/fb.png" alt="" />
+          <img src="img/logo ig.png" alt="" />
+          <img src="img/twter.png" alt="" />
+        </div>
+        <div class="copytigth">
+          <p>Todos los derechos reservados &copy; 2023 - Geinz</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
